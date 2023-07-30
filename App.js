@@ -1,36 +1,20 @@
 import React from "react";
 import ReactDOM  from "react-dom/client";
 
-const heading1 = React.createElement(
-    "h1",
-    {id: "heading1"},
-    "I am heading1"
-);
+const Title = () => <h1 id="title">title component</h1>
 
-const heading2 = React.createElement(
-    "h2",
-    {id: "heading2"},
-    "I am heading2"
-);
+const Heading = () => <h1 id="heading">heading component</h1>;
 
-const child1 = React.createElement(
-    "div",
-    {id:"child1"},
-    [heading1, heading2]
-);
-
-const child2 = React.createElement(
-    "div",
-    {id:"child2"},
-    [heading1, heading2]
-);
-
-const parent = React.createElement(
-    "div",
-    {id:"parent"},
-    [child1, child2]
-);
+const Container = () => (
+    <div id="container">
+        {/* following 3 titles in JSX are rendered exactly same */}
+        {Title()}
+        <Title></Title>
+        <Title/>
+        <Heading/>
+    </div>
+)
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent);
+root.render(<Container/>);
