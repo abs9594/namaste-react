@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "namaste react project",
   "scripts": {
-    "start":"parcel index.html",
+    "start": "parcel index.html",
     "build": "parcel build index.html",
     "test": "jest"
   },
@@ -14,10 +14,12 @@
     "process": "^0.11.10"
   },
   "dependencies": {
+    "eslint": "^8.7.0",
+    "prettier": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "broweserslist" : [
+  "broweserslist": [
     "last 2 versions"
   ]
 }
