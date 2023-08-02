@@ -44,7 +44,7 @@
     border-radius: 10px;
 }
 
-.filter-btn {
+.filter-btn > button{
     padding: 5px;
     margin: 5px;
     cursor: pointer;
