@@ -1,7 +1,4 @@
-import React from "react";
-import ReactDOM  from "react-dom/client";
-
-const restauarantList = [
+export const restauarantList = [
   {
     "info": {
       "id": "65689",
@@ -1325,56 +1322,3 @@ const restauarantList = [
     "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
   }
 ];
-
-const Header = () => (
-    <div className="header">
-        <div className="logo-container">
-            <img className="logo" src="https://cdn.vectorstock.com/i/preview-1x/43/01/restaurant-map-pointer-icon-food-point-pin-symbol-vector-47134301.jpg" alt="home-logo"/>
-        </div>
-        <div className="nav-items">
-            <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>Cart</li>
-            </ul>
-        </div>
-    </div>
-);
-
-const RestaurantCard = (props) =>{
-    const {cloudinaryImageId, name, cuisines, avgRating, costForTwo} = props.resData;
-    return (<div className="res-card">
-        <img className="res-logo"
-             src={`https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/${cloudinaryImageId}`}
-             alt="res-logo"/>
-        <h3>{name}</h3>
-        <h4>{cuisines.join(",")}</h4>
-        <h4>{`${avgRating} star`}</h4>
-        <h4>{costForTwo}</h4>
-        <h4>{props.resData.sla.slaString}</h4>
-    </div>
-)};
-
-const Body = () => (
-    <div className="body">
-        <div className="search">
-            Search
-        </div>
-        <div className="res-container">
-            {restauarantList.map(restaurant => <RestaurantCard key={restaurant.info.id} resData={restaurant.info}/>)}
-        </div>
-    </div>
-);
-
-const AppLayout = () => (
-    <div className="app">
-        <Header/>
-        <Body/>
-    </div>
-);
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout/>);

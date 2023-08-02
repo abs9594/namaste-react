@@ -44,8 +44,10 @@
     border-radius: 10px;
 }
 
-.search {
+.filter-btn {
     padding: 5px;
+    margin: 5px;
+    cursor: pointer;
 }
 
 .res-card:hover {
