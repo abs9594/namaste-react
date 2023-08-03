@@ -1,3 +1,7 @@
+button {
+    cursor: pointer;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -30,6 +34,11 @@
     margin: 5px;
 }
 
+.nav-items > ul > li > button{
+    padding: 5px;
+    cursor: pointer;
+}
+
 .res-card {
     width: 200px;
     padding: 5px;
@@ -44,10 +53,18 @@
     border-radius: 10px;
 }
 
-.filter-btn > button{
+.filter{
+    display: flex;
     padding: 5px;
     margin: 5px;
-    cursor: pointer;
+}
+
+.top-rated-btn {
+    margin: 0 10px 0 10px;
+}
+
+.top-rated-btn{
+    margin: 0 10px 0 10px;
 }
 
 .res-card:hover {
@@ -58,4 +75,18 @@
 .res-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+.shimmer-card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card {
+    width: 200px;
+    height: 400px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #0f0f0f0f;
 }
