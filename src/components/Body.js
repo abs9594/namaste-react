@@ -14,7 +14,7 @@ const Body = () => {
     );
     let jsonData = await data.json();
     jsonData = jsonData.data.cards.filter(
-      (card) => card?.card?.card?.id === "top_brands_for_you",
+      (card) => card?.card?.card?.id === "restaurant_grid_listing",
     )[0]?.card?.card;
     setResList(jsonData?.gridElements?.infoWithStyle?.restaurants);
     setFilteredResList(jsonData?.gridElements?.infoWithStyle?.restaurants);

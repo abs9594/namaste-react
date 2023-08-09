@@ -97,7 +97,7 @@ button {
 
 .menu-item-container {
     display: flex;
-    height: 100px;
+    height: 200px;
     width: 40%;
     margin:5px;
     background-color: #0f0f0f0f;
@@ -117,4 +117,17 @@ button {
     margin: auto;
     margin-left: 20px;
     
+}
+
+.menu-item-image {
+    width: 200px;
+    border-radius: 10px;
+}
+
+.user-card {
+    padding: 10px;
+    margin: auto;
+    border: 1px solid black;
+    background-color: #0f0f0f0f;
+    width: 50%;
 }
