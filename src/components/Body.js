@@ -2,13 +2,16 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import RestaurantShimmerCards from "./RestaurantShimmerCards";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
   const [filteredResList, setFilteredResList] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const onlineStatus = useOnlineStatus();
 
   const fetchResList = async () => {
+    if (!onlineStatus) return;
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.4152338&lng=72.81314320000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
     );
@@ -36,8 +39,10 @@ const Body = () => {
       resList.filter((res) => res.info.name.includes(searchText)),
     );
   };
-
-  return resList.length === 0 ? (
+  console.log(onlineStatus);
+  return !onlineStatus ? (
+    <h1>You are offline</h1>
+  ) : resList.length === 0 ? (
     <RestaurantShimmerCards />
   ) : (
     <div className="body">
