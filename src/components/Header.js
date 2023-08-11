@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LOGO_URL } from "../utils/constants";
+import logo from "../../src/logo.png";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
@@ -13,29 +13,28 @@ const Header = () => {
   };
 
   return (
-    <div className="header">
-      <div className="logo-container">
+    <div className="flex justify-between h-24 shadow-lg mb-2">
+      <div>
         <Link to={"/"} style={{ textDecoration: "none" }}>
-          <img className="logo" src={LOGO_URL} alt="home-logo" />
+          <img className="w-24 h-[100%] p-2" src={logo} alt="home-logo" />
         </Link>
       </div>
-      <div className="nav-items">
-        <ul>
-          {console.log(onlineStatus)}
-          <li>Online Status:{onlineStatus ? "🟢" : "🔴"}</li>
-          <li>
+      <div>
+        <ul className="flex m-4 p-4 items-center">
+          <li className="m-2">Online Status:{onlineStatus ? "🟢" : "🔴"}</li>
+          <li className="m-2">
             <Link to={"/"} style={{ textDecoration: "none" }}>
               Home
             </Link>
           </li>
-          <li>
+          <li className="p-4">
             <Link to={"/about"}>About Us</Link>
           </li>
-          <li>
+          <li className="p-4">
             <Link to={"/contact"}>Contact Us</Link>
           </li>
-          <li>Cart</li>
-          <li>
+          <li className="p-4">Cart</li>
+          <li className="p-4">
             <button onClick={(event) => updateBtn(event)}>{btn}</button>
           </li>
         </ul>

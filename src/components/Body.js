@@ -36,38 +36,50 @@ const Body = () => {
 
   const onSearchHandler = () => {
     setFilteredResList(
-      resList.filter((res) => res.info.name.includes(searchText)),
+      resList.filter((res) =>
+        res?.info?.name?.toLowerCase().includes(searchText),
+      ),
     );
   };
   console.log(onlineStatus);
   return !onlineStatus ? (
     <h1>You are offline</h1>
-  ) : resList.length === 0 ? (
-    <RestaurantShimmerCards />
   ) : (
-    <div className="body">
-      <div className="filter">
-        <div>
+    <div className="m-auto font-serif">
+      <div className="flex items-center">
+        <div className="m-4 p-4">
           <input
+            className="rounded-md border border-solid border-black m-2"
             type="text"
-            onChange={(event) => setSearchText(event.target.value)}
+            onChange={(event) =>
+              setSearchText(event.target.value.toLocaleLowerCase())
+            }
             value={searchText}
           />
-          <button onClick={onSearchHandler}>Search</button>
+          <button
+            className="px-4 py-1 bg-green-200 m-2 rounded-md"
+            onClick={onSearchHandler}
+          >
+            Search
+          </button>
         </div>
-        <div className="top-rated-btn">
+        <div className="px-4 py-1 bg-gray-200 m-2 rounded-md">
           <button onClick={(event) => filterRestList(event)}>
             Top Rated Restaurants
           </button>
         </div>
       </div>
-      <div className="res-container">
-        {filteredResList.map((restaurant) => (
-          <Link to={`/${restaurant.info.id}`} key={restaurant.info.id}>
-            <RestaurantCard resData={restaurant.info} />
-          </Link>
-        ))}
-      </div>
+      {resList.length === 0 ? (
+        <RestaurantShimmerCards />
+      ) : (
+        <div className="flex flex-wrap justify-center">
+          {filteredResList.map((restaurant) => (
+            <Link to={`/${restaurant.info.id}`} key={restaurant.info.id}>
+              <RestaurantCard resData={restaurant.info} />
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

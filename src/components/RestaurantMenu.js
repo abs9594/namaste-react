@@ -10,7 +10,7 @@ const RestaurantMenu = () => {
   return !menuInfo ? (
     <MenuItemsShimmerCards />
   ) : (
-    <div className="menu-container">
+    <div className="flex flex-wrap">
       {menuInfo.map((item, index) => (
         <RestaurantItem key={item.id + index} itemInfo={item} />
       ))}
