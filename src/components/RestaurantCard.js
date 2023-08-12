@@ -5,14 +5,14 @@ const RestaurantCard = (props) => {
     props.resData;
 
   return (
-    <div className="w-72 m-4 p-4 transform transition duration-500 hover:scale-95">
+    <div className="w-72 m-4 p-4 transform transition duration-500 hover:scale-105">
       <img
-        className="h-36 w-[100%] rounded-lg object-cover"
+        className="h-36 w-full rounded-lg object-cover"
         src={`${CDN_URL}/${cloudinaryImageId}`}
         alt="res-logo"
       />
-      <h3 className="font-semibold">{name}</h3>
-      <h4 className="overflow-ellipsis overflow-hidden whitespace-nowrap">
+      <h3 className="font-semibold text-xl">{name}</h3>
+      <h4 className="overflow-ellipsis overflow-hidden whitespace-nowrap text-sm">
         {cuisines.join(",")}
       </h4>
       <h4 className="font-semibold">{`⭐ ${avgRating}`}</h4>

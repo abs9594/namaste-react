@@ -41,7 +41,6 @@ const Body = () => {
       ),
     );
   };
-  console.log(onlineStatus);
   return !onlineStatus ? (
     <h1>You are offline</h1>
   ) : (

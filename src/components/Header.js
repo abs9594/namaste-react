@@ -2,10 +2,13 @@ import { useState } from "react";
 import logo from "../../src/logo.png";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btn, setBtn] = useState("Login");
   const onlineStatus = useOnlineStatus();
+
+  const cartItems = useSelector((store) => store.cart.items);
 
   const updateBtn = (event) => {
     event.preventDefault();
@@ -33,7 +36,10 @@ const Header = () => {
           <li className="p-4">
             <Link to={"/contact"}>Contact Us</Link>
           </li>
-          <li className="p-4">Cart</li>
+          <Link to={"/cart"}>
+            <li className="p-4">Cart({cartItems.length})</li>
+          </Link>
+
           <li className="p-4">
             <button onClick={(event) => updateBtn(event)}>{btn}</button>
           </li>
